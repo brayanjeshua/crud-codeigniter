@@ -1,3 +1,5 @@
+<script type="text/javascript">
+
 // General Functions for app
 
 
@@ -23,8 +25,8 @@ function enviarformCustomer() {
        data: $('#customer_frm').serialize(),
 
         success: function(data) {
-          alert("Success! "+data);
-          // location.reload();
+          // alert("Success! "+data);
+          location.reload();
         }
 
       })
@@ -33,9 +35,9 @@ function enviarformCustomer() {
 
   function editCustomer(id) {
 
-    alert("Editing customer: "+id)
+    // alert("Editing customer: "+id)
 
-    urlx = "<?php echo site_url('work/elegido/')?>"+id;
+    urlx = "<?php echo site_url('model/elegido/')?>"+id;
 
      $.ajax({
        url: urlx,
@@ -48,11 +50,11 @@ function enviarformCustomer() {
 
 
          $("#id").val(datax[0]['id'])
-         $("#company_name").val(datax[0]['company_name'])
-         $("#contact_name").val(datax[0]['contact_name'])
-         $("#phone").val(datax[0]['phone'])
+         $("#nombre").val(datax[0]['nombre'])
+         $("#motivo_visita").val(datax[0]['motivo_visita'])
+         $("#telefono").val(datax[0]['telefono'])
          $("#mail").val(datax[0]['mail'])
-         $("#observations").val(datax[0]['observations'])
+         $("#comentarios").val(datax[0]['comentarios'])
          $("#button_customer").val("Edit")
 
        }
@@ -71,9 +73,11 @@ function enviarformCustomer() {
        url: urlx,
        type:"GET",
        success:function(data){
-         alert(data);
-         // location.reload();
+         // alert(data);
+         location.reload();
        }
    });
 
  }
+
+</script>

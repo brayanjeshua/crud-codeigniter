@@ -33,7 +33,7 @@
 
                 <div class="card-body">
 
-  								<form id="customer_frm" name="customer_form" action='' method="post">
+  								<form id="customer_frm" name="customer_form" method="post" action=''>
 
                       <!-- Input to Send when exist -->
                       <input class="form-control" type="hidden" name="id" id="id">
@@ -41,23 +41,28 @@
   											<div class="form-row" id="form-customer">
 
   												<div class="col-2">
-  													<input type="text" class="form-control form-control-lg" placeholder="Company Name" name="company_name" value="" id="company_name">
+  													<input type="text" class="form-control" placeholder="Nombre" name="nombre" value="" id="nombre">
   												</div>
 
                           <div class="col-2">
-                            <input type="text" class="form-control form-control-lg" placeholder="Contact Name" name="contact_name" value="" id="contact_name">
+                            <input type="email" class="form-control" placeholder="nombre@mail.com" name="mail" value="" id="mail">
+                          </div>
+
+                          <div class="col-2">
+                            <!-- <input type="text" class="form-control" placeholder="Motivo Visita" name="motivo_visita" value="" id="motivo_visita"> -->
+                            <select class="form-control" name="motivo_visita">
+                              <option value="Compra">Compra</option>
+                              <option value="Venta">Venta</option>
+                              <option value="Alquiler">Alquiler</option>
+                            </select>
                           </div>
 
   												<div class="col-2">
-  													<input type="phone" class="form-control form-control-lg" placeholder="phone" name="phone" value="" id="phone">
-  												</div>
-
-  												<div class="col-2">
-  													<input type="email" class="form-control form-control-lg" placeholder="mail" name="mail" value="" id="mail">
+  													<input type="phone" class="form-control" placeholder="Telefono" name="telefono" value="" id="telefono">
   												</div>
 
   												<div class="col-4">
-  													<input type="text" class="form-control form-control-lg" placeholder="Observations" name="observations" value="" id="observations">
+  													<textarea type="text" class="form-control" placeholder="Comentarios" name="comentarios" value="" id="comentarios"></textarea>
   												</div>
 
   												<div class="col-2">
@@ -73,11 +78,13 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <td>Company Name</td>
-                          <td>Contact Name</td>
-                          <td>Phone</td>
-                          <td>mail</td>
-                          <td>Observations</td>
+                          <td>Nombre</td>
+                          <td>Email</td>
+                          <td>Motivo Visita</td>
+                          <td>Telefono</td>
+                          <td>Comentarios</td>
+                          <td>Editar</td>
+                          <td>Borrar</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -88,11 +95,23 @@
 
   																<?php echo '<tr>' ?>
 
-                                      <td><?= $value['company_name']?></td>
-  																		<td><?= $value['contact_name']?></td>
-  																		<td><?= $value['phone']?></td>
-  																		<td><?= $value['mail']?></td>
-                                      <td><?= $value['observations']?></td>
+                                      <td><?= $value['nombre']?></td>
+                                      <td><?= $value['mail']?></td>
+  																		<td><?= $value['motivo_visita']?></td>
+  																		<td><?= $value['telefono']?></td>
+                                      <td><?= $value['comentarios']?></td>
+
+                                      <td>
+                                        <button type="button" class="btn btn-secondary" onclick="editCustomer(<?= $value['id']?>)">
+                                          Editar
+                                        </button>
+                                      </td>
+
+                                      <td>
+                                        <button type="button" class="btn btn-secondary" onclick="deleteCustomer(<?= $value['id']?>)">
+                                          Borrar
+                                        </button>
+                                      </td>
 
   																<?php echo '</tr>' ?>
 
@@ -104,9 +123,12 @@
                     </table>
 
   							</div>
+
               </div>
+
             </div>
   			</div>
+
   		</div>
 
   	</div>
@@ -116,6 +138,8 @@
 
   </div>
 
+
+</div>
 
 </div>
 

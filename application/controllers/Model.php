@@ -22,12 +22,11 @@ class Model extends CI_Controller {
   public function handleCustomer() {
 
     // if form has been sent
-    if (isset($_POST['company_name'])) {
+    if (isset($_POST['nombre'])) {
 
      $post_data = $_POST;
 
      // Custom Fields for Add Database
-     $post_data['id_user'] = $_SESSION['user_id'];
      $post_data['create_date'] = date("Y-m-d");
 
       // find number id in database
