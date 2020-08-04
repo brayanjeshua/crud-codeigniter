@@ -31,7 +31,7 @@ date_default_timezone_set('America/Bogota');
 // Jeshua Computer by Other drive in local
 // $config['base_url'] = 'http://192.168.1.174/team/';
 
-$config['base_url'] = 'http://localhost/crud';
+$config['base_url'] = 'http://localhost:8888/jw/';
 
 
 /*
